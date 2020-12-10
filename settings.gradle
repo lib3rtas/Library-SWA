@@ -1,0 +1,7 @@
+rootProject.name = 'library_swa'
+
+include 'app'
+include 'db'
+include 'domain'
+include 'spring'
+include 'web'
