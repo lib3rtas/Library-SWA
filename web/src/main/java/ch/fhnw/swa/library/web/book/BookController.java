@@ -1,4 +1,4 @@
-package ch.fhnw.swa.library.web;
+package ch.fhnw.swa.library.web.book;
 
 import ch.fhnw.swa.library.book.Book;
 import ch.fhnw.swa.library.book.IBookService;
@@ -22,9 +22,10 @@ public class BookController {
     private final IBookService bookService;
 
     @GetMapping
-    public String getAllBooks() {
-        List<Book> bookList = bookService.getAllBooks();
-        return "/artifacts/list";
+    public String getAllBooks(Model model) {
+        List<Book> books = bookService.getAllBooks();
+        model.addAttribute("books", books);
+        return "books/list";
     }
 
     @GetMapping(path = "{id}")

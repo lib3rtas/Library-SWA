@@ -11,6 +11,13 @@ public class ListBookRepository implements IBookRepository {
 
     public ListBookRepository(){
         db = new ArrayList<>();
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Philosopher's Stone"));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Chamber of Secrets"));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Prisoner of Azkaban"));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Goblet of Fire"));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Order of the Phoenix"));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Half-Blood Prince"));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Deathly Hallows"));
     }
 
     @Override
