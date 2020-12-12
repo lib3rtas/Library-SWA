@@ -1,10 +1,10 @@
-package ch.fhnw.swa.library.app;
+package ch.fhnw.swa.library.book;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LibraryApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {

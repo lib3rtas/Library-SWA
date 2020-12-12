@@ -1,10 +1,10 @@
-package ch.fhnw.swa.library.domain;
+package ch.fhnw.swa.library.book;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DomainApplicationTests {
+class DbApplicationTests {
 
 	@Test
 	void contextLoads() {

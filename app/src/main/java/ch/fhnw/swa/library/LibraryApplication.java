@@ -1,21 +1,11 @@
-package ch.fhnw.swa.library.app;
+package ch.fhnw.swa.library;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication
-@RestController
+@SpringBootApplication(scanBasePackages = "ch.fhnw.swa.library.web")
 public class LibraryApplication {
-
-	@GetMapping("/")
-	public String home() {
-		return "test";
-	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(LibraryApplication.class, args);
 	}
-
 }

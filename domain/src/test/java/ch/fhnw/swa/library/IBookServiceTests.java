@@ -1,10 +1,10 @@
-package ch.fhnw.swa.library.spring;
+package ch.fhnw.swa.library;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class IBookServiceTests {
 
 	@Test
 	void contextLoads() {
