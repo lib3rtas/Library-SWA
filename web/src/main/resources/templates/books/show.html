@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html th:replace="~{layout :: maincontent(~{::section})}">
+
+<head>
+    <title>Book</title>
+</head>
+
+<body>
+<section>
+    <h3>Book</h3>
+    <strong th:text="${book.title}">sample title</strong>
+    <br />
+    <span th:text="${book.id}">sample description</span>
+</section>
+</body>
+
+</html>
