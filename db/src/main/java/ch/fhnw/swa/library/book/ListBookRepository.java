@@ -1,7 +1,5 @@
 package ch.fhnw.swa.library.book;
 
-import org.springframework.stereotype.Repository;
-
 import java.util.*;
 
 class ListBookRepository implements IBookRepository {
