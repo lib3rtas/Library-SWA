@@ -21,49 +21,63 @@ import java.util.UUID;
 public class ThymeleafBookController {
     private final IBookService bookService;
 
-    @PostMapping("create")
-    public String createBook(Book book) {
-        bookService.createBook(book);
-        return "redirect:/books";
-    }
 
-    @PostMapping("update")
-    public String updateBook(Book book) {
-        bookService.updateBook(book);
-        return "redirect:/books";
-    }
-
-    @GetMapping
-    public String getBookListForm(Model model) {
+    // List all Books
+    @GetMapping("/books")
+    public String getPageBookList(Model model) {
         List<Book> books = bookService.getAllBooks();
         model.addAttribute("books", books);
         return "/books/list";
     }
 
-    @GetMapping(path = "{id}")
-    public String getBookForm(Model model, @PathVariable UUID id) {
+
+    // Show specific Book
+    @GetMapping(path = "/books/{id}")
+    public String getPageBookShow(Model model, @PathVariable UUID id) {
         Optional<Book> book = bookService.getBookById(id);
         model.addAttribute("book", book.get());
         return "/books/show";
     }
 
-    @GetMapping(path = "{id}/update")
-    public String getUpdateBookForm(Model model, @PathVariable UUID id) {
+
+    // Create Book
+    @PostMapping("/books/create")
+    public String createBook(Book book) {
+        bookService.createBook(book);
+        return "redirect:/books";
+    }
+
+    @GetMapping(path = "/books/create")
+    public String getPageBookCreate(Model model) {
+        model.addAttribute("book", new Book());
+        return "/books/create";
+    }
+
+
+    // Update Book
+    @PostMapping("/books/update")
+    public String updateBook(Book book) {
+        bookService.updateBook(book);
+        return "redirect:/books";
+    }
+
+    @GetMapping(path = "/books/{id}/update")
+    public String getPageUpdateBook(Model model, @PathVariable UUID id) {
         Optional<Book> book = bookService.getBookById(id);
         model.addAttribute("book", book.get());
         return "/books/update";
     }
 
-    @GetMapping(path = "create")
-    public String getCreateBookForm(Model model){
-        model.addAttribute("book", new Book());
-        return "/books/create";
-    }
 
-    @GetMapping(path = "{id}/delete")
-    public String deleteBookRelay(@PathVariable UUID id) {
+    // Delete Book
+    // Http Method is GET because less complexity with thymeleaf
+    @GetMapping(path = "/books/{id}/delete")
+    public String deleteBook(Model model, @PathVariable UUID id) {
         Optional<Book> book = bookService.getBookById(id);
-        bookService.removeBookById(book.get().getId());
-        return "redirect:/books";
+        if (book.isPresent()){
+            bookService.removeBookById(book.get().getId());
+            return "redirect:/books";
+        }
+        return "redirect:/error";
     }
 }
