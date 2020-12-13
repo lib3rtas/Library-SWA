@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface IBookRepository {
-    int addBook(Book book);
+    int createBook(Book book);
 
     List<Book> getAllBooks();
 
@@ -13,5 +13,5 @@ public interface IBookRepository {
 
     int removeBookById(UUID id);
 
-    int updateBookById(UUID id, Book book);
+    int updateBook(Book book);
 }

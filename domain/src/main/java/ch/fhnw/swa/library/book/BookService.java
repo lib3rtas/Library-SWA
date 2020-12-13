@@ -1,20 +1,17 @@
 package ch.fhnw.swa.library.book;
 
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @AllArgsConstructor
-@Service
-public class BookService implements IBookService {
+class BookService implements IBookService {
     private final IBookRepository bookRepository;
 
     @Override
-    public int addBook(Book book) {
-        return bookRepository.addBook(book);
+    public int createBook(Book book) {
+        return bookRepository.createBook(book);
     }
 
     @Override
@@ -33,7 +30,7 @@ public class BookService implements IBookService {
     }
 
     @Override
-    public int updateBookById(UUID id, Book book) {
-        return bookRepository.updateBookById(id, book);
+    public int updateBook(Book book) {
+        return bookRepository.updateBook(book);
     }
 }
