@@ -4,8 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
-public class ListBookRepository implements IBookRepository {
+class ListBookRepository implements IBookRepository {
 
     private final List<Book> db;
 
