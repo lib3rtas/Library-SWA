@@ -10,8 +10,8 @@ public class BookFactory {
     private static final Random random = new Random();
 
     // create specific book instance
-    public Book createSpecificBook(UUID id, String title, String description){
-        return new Book(id, title, description);
+    public Book createSpecificBook(UUID id, String title, String author, String description){
+        return new Book(id, title, author, description);
     }
 
     // create random book
@@ -19,7 +19,9 @@ public class BookFactory {
         return new Book(
                 UUID.randomUUID(),
                 generateRandomString(10),
+                generateRandomString(8),
                 generateRandomString(100)
+
         );
     }
 

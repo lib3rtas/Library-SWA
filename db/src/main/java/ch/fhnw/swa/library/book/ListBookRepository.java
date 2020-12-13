@@ -59,12 +59,12 @@ class ListBookRepository implements IBookRepository {
                 "voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non " +
                 "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Philosopher's Stone",  sampleDescription));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Chamber of Secrets",   sampleDescription));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Prisoner of Azkaban",  sampleDescription));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Goblet of Fire",       sampleDescription));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Order of the Phoenix", sampleDescription));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Half-Blood Prince",    sampleDescription));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Deathly Hallows",      sampleDescription));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Philosopher's Stone",  "J.K. Rowling",  sampleDescription));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Chamber of Secrets",   "J.K. Rowling",  sampleDescription));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Prisoner of Azkaban","J.K. Rowling", sampleDescription));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Goblet of Fire","J.K. Rowling",      sampleDescription));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Order of the Phoenix","J.K. Rowling", sampleDescription));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Half-Blood Prince","J.K. Rowling",   sampleDescription));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Deathly Hallows","J.K. Rowling",     sampleDescription));
     }
 }
