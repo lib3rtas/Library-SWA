@@ -19,10 +19,6 @@ Matriculation Number: (17-550-708)
 - [X] Simple In-Memory per List
 - [ ] Restart persistent data storage
 
-* [ch.fhnw.swa.modserv.cli](https://github.com/ribeaud/ch.fhnw.swa.modserv.cli)
-* [myshop](https://github.com/ribeaud/blog-code-samples/tree/master/myshop)
-* [PetClinic](https://github.com/spring-projects/spring-petclinic)
-
 #### Checklist
 - [ ] Description (POM file, index.html, Markdown file, Component/class diagram)
 - [X] It works
