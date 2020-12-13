@@ -7,14 +7,18 @@
 
 <body>
 <section>
-    <h3 th:text="${book.title}">Book title</h3>
-    <strong th:text="${book.id}">sample title</strong>
-    <br />
-    <span th:text="${book.description}">sample description</span>
-</section>
-<section>
-<a class="btn btn-danger" th:href="@{/books} + '/' + ${book.id} + '/delete'">Delete</a>
-<a class="btn btn-primary" th:href="@{/books} + '/' + ${book.id} + '/update'">Update</a>
+    <div class="card">
+        <div th:text="${book.id}" class="card-header">
+            id placeholder
+        </div>
+        <div class="card-body">
+            <h3 th:text="${book.title}" class="card-title">title placeholder</h3>
+            <h6 th:text="${book.author}" class="card-subtitle mb-2 text-muted">author placeholder</h6>
+            <p th:text="${book.description}" class="card-text">description placeholder</p>
+            <a class="btn btn-danger" th:href="@{/books} + '/' + ${book.id} + '/delete'">Delete</a>
+            <a class="btn btn-primary" th:href="@{/books} + '/' + ${book.id} + '/update'">Update</a>
+        </div>
+    </div>
 </section>
 </body>
 

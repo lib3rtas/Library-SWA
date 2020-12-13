@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html th:replace="~{layout :: maincontent(~{::section})} " xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <title>Book List</title>
-    </head>
+<head>
+    <title>Book List</title>
+</head>
 
-    <body>
-        <section>
-            <h3>Books</h3>
-            <table>
-                <tbody>
-                <tr th:each="book : ${books}">
-                    <td><a th:href="@{/books} + '/' + ${book.id}" th:text="${book.title}">Test Title</a></td>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-        <br />
-        <br />
-        <section>
-        <a class="btn btn-primary" th:href="@{/books/create}">Create New Book</a>
-        </section>
-    </body>
+<body>
+<section>
+    <br/>
+    <div class="container-fluid">
+        <h3>Books</h3>
+    </div>
+    <br/>
+    <ul class="list-group">
+        <tr th:each="book : ${books}">
+            <li class="list-group-item"><a th:href="@{/books} + '/' + ${book.id}" th:text="${book.title}">placeholder
+                title</a></li>
+        </tr>
+        <li class="list-group-item"><a class="btn btn-primary" th:href="@{/books/create}">Create New Book</a></li>
+    </ul>
+</section>
+</body>
 
 </html>

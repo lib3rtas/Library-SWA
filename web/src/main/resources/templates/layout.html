@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html th:fragment="maincontent(content)" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>LibraryApplication</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-<div class="container-fluid">
-    <div th:replace="~{header :: header}">Placeholder for Header</div>
-    <div th:replace="${content}">Placeholder for Content</div>
-</div>
+<div th:replace="~{header :: header}">Placeholder for Header</div>
+<div th:replace="${content}">Placeholder for Content</div>
 </body>
 </html>

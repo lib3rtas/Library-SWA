@@ -7,24 +7,34 @@
 
 <body>
     <section>
-        <form th:action="@{/books/create}" th:object="${book}" method="post">
-            <div class="form-group row">
-                <label class="col-md-2" for="title">Title:</label>
-                <div class="col-md-10">
-                    <input class="form-control" type="text" th:field="*{title}" autofocus="autofocus" />
+    <div class="card">
+        <div class="card-body">
+            <form th:action="@{/books/create}" th:object="${book}" method="post">
+                <div class="form-group row">
+                    <label class="col-md-2" for="title">Title:</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="text" th:field="*{title}" autofocus="autofocus" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-md-2" for="desciption">Description:</label>
-                <div class="col-md-10">
-                    <input class="form-control" type="text" th:field="*{description}" autofocus="autofocus" />
+                <div class="form-group row">
+                    <label class="col-md-2" for="title">Author:</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="text" th:field="*{author}" autofocus="autofocus" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <a class="btn btn-default" th:href="@{/books}">Cancel</a>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-        </form>
+                <div class="form-group row">
+                    <label class="col-md-2" for="desciption">Description:</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="text" th:field="*{description}" autofocus="autofocus" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <a class="btn btn-default" th:href="@{/books}">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
     </section>
 </body>
 </html>
