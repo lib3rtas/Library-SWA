@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html th:replace="~{layout :: maincontent(~{::section})}">
+<html th:replace="~{layout :: maincontent(~{::section})}" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>Book</title>
@@ -8,9 +8,13 @@
 <body>
 <section>
     <h3 th:text="${book.title}">Book title</h3>
-    <strong th:text="${book.title}">sample title</strong>
+    <strong th:text="${book.id}">sample title</strong>
     <br />
-    <span th:text="${book.id}">sample description</span>
+    <span th:text="${book.description}">sample description</span>
+</section>
+<section>
+<a class="btn btn-danger" th:href="@{/books} + '/' + ${book.id} + '/delete'">Delete</a>
+<a class="btn btn-primary" th:href="@{/books} + '/' + ${book.id} + '/update'">Update</a>
 </section>
 </body>
 
