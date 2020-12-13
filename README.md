@@ -16,7 +16,7 @@ Matriculation Number: (17-550-708)
 - [ ] Image upload (in its own *module*)
 
 #### Data persistency
-- [X] Simple In-Memory per List
+- [X] Simple In-Memory per java.util.List
 - [ ] Restart persistent data storage
 
 #### Checklist
@@ -39,13 +39,17 @@ Matriculation Number: (17-550-708)
 (_to be filled by student_)???
 
 How to start the project:
-./gradlew bootRun
+
+`./gradlew bootRun`
 
 How to test the project:
 
+`insert command to test`
+
 External contributions:
-- General architecture idea [myshop](https://github.com/ribeaud/blog-code-samples/tree/master/myshop)
-- Random string generation [Link](https://stackoverflow.com/a/157202)
+* Architecture idea [myshop](https://github.com/ribeaud/blog-code-samples/tree/master/myshop)
+* How to best modularize spring projects [https://spring.io/guides/gs/multi-module/](https://spring.io/guides/gs/multi-module/)
+* Simple Java random string generation [https://stackoverflow.com/a/157202](https://stackoverflow.com/a/157202)
 
 Other comments:
 
