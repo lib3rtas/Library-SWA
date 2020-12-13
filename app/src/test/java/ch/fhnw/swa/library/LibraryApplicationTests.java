@@ -1,6 +1,6 @@
 package ch.fhnw.swa.library;
 
-import ch.fhnw.swa.library.web.BookController;
+import ch.fhnw.swa.library.web.ThymeleafBookController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,10 +11,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LibraryApplicationTests {
 
 	@Autowired
-	private BookController bookController;
+	private ThymeleafBookController thymeleafBookController;
 
 	@Test
 	void contextLoads() throws Exception {
-		assertThat(bookController).isNotNull();
+		assertThat(thymeleafBookController).isNotNull();
 	}
 }

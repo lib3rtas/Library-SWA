@@ -12,11 +12,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * Book Server Page Controller implementation
+ */
 @Controller
 @AllArgsConstructor
 @ComponentScan("ch.fhnw.swa.library.book")
-@RequestMapping("/books")
-public class BookController {
+public class ThymeleafBookController {
     private final IBookService bookService;
 
     @PostMapping("create")
