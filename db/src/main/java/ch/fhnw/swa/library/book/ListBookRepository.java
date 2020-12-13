@@ -8,13 +8,7 @@ class ListBookRepository implements IBookRepository {
 
     public ListBookRepository(){
         db = new ArrayList<>();
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Philosopher's Stone"));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Chamber of Secrets"));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Prisoner of Azkaban"));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Goblet of Fire"));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Order of the Phoenix"));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Half-Blood Prince"));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Deathly Hallows"));
+        fillListWithExampleData();
     }
 
     @Override
@@ -56,5 +50,21 @@ class ListBookRepository implements IBookRepository {
             db.set(index, book);
             return 1;
         }
+    }
+
+    private void fillListWithExampleData(){
+        String sampleDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
+                "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation " +
+                "ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " +
+                "voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non " +
+                "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Philosopher's Stone",  sampleDescription));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Chamber of Secrets",   sampleDescription));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Prisoner of Azkaban",  sampleDescription));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Goblet of Fire",       sampleDescription));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Order of the Phoenix", sampleDescription));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Half-Blood Prince",    sampleDescription));
+        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Deathly Hallows",      sampleDescription));
     }
 }
