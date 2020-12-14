@@ -34,7 +34,10 @@ public class H2BookRepository implements IBookRepository {
 
     @Override
     public Optional<Book> getBookById(long id) {
-        return Optional.empty();
+        return Optional.ofNullable(jdbcTemplate.queryForObject(
+                "SELECT * FROM books WHERE id = " + id + ";",
+                (resultSet, rowNumber) -> createBookFromResponse(resultSet))
+        );
     }
 
     @Override
