@@ -42,7 +42,10 @@ public class H2BookRepository implements IBookRepository {
 
     @Override
     public int removeBookById(long id) {
-        return 0;
+        jdbcTemplate.execute(
+                "DELETE FROM books WHERE id = " + id + ";"
+        );
+        return 1;
     }
 
     @Override
@@ -57,7 +60,7 @@ public class H2BookRepository implements IBookRepository {
         return 1;
     }
 
-    private Book constructBookFromResponse(ResultSet resultSet) throws SQLException {
+    private Book createBookFromResponse(ResultSet resultSet) throws SQLException {
         return bookFactory.createSpecificBook(
                 resultSet.getLong("id"),
                 resultSet.getString("title"),
