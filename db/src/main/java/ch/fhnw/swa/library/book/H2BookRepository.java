@@ -27,8 +27,9 @@ public class H2BookRepository implements IBookRepository {
     @Override
     public List<Book> getAllBooks() {
         return jdbcTemplate.query(
-                "SELECT * FROM books",
-                (rs, rowNum) -> constructBookFromResponse(rs));
+                "SELECT * FROM books;",
+                (resultSet, rowNumber) -> createBookFromResponse(resultSet)
+        );
     }
 
     @Override
