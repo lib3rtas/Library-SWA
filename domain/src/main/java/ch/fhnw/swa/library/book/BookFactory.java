@@ -5,19 +5,21 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-public class BookFactory {
+public class BookFactory implements IBookFactory {
     private static final String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     private static final Random random = new Random();
 
     // create specific book instance
-    public Book createSpecificBook(UUID id, String title, String author, String description){
+    @Override
+    public Book createSpecificBook(long id, String title, String author, String description){
         return new Book(id, title, author, description);
     }
 
     // create random book
+    @Override
     public Book createRandomBook(){
         return new Book(
-                UUID.randomUUID(),
+                new Random().nextLong(),
                 generateRandomString(10),
                 generateRandomString(8),
                 generateRandomString(100)
@@ -26,6 +28,7 @@ public class BookFactory {
     }
 
     // create list of random books
+    @Override
     public List<Book> createListOfRandomBooks(int amount){
         List<Book> books = new ArrayList<>();
         for(int i = 0; i < amount; i++){
