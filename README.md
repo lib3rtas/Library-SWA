@@ -37,7 +37,6 @@ Matriculation Number: (17-550-708)
 
 
 ## Project delivery
-(_to be filled by student_)???
 
 ### How to start the project:
 
