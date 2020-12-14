@@ -47,7 +47,14 @@ public class H2BookRepository implements IBookRepository {
 
     @Override
     public int updateBook(Book book) {
-        return 0;
+        jdbcTemplate.update(
+                "UPDATE books SET title = ?,author = ?,description = ? WHERE id = ?;",
+                book.getTitle(),
+                book.getAuthor(),
+                book.getDescription(),
+                book.getId()
+        );
+        return 1;
     }
 
     private Book constructBookFromResponse(ResultSet resultSet) throws SQLException {
