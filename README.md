@@ -3,6 +3,9 @@ A modular spring library application for Software Architecture HS2020
 
 Matriculation Number: (17-550-708)
 
+![Class Overview Image](/images/class_overview.png)
+![Class Diagram Image](/images/gleek-class-diagram.svg)
+
 #### Minimum requirements 
 
 - [X] List the entities
