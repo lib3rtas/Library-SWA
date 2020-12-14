@@ -34,8 +34,15 @@ public class ThymeleafBookController {
     @GetMapping(path = "/books/{id}")
     public String getPageBookShow(Model model, @PathVariable long id) {
         Optional<Book> book = bookService.getBookById(id);
-        model.addAttribute("book", book.get());
-        return "books/show";
+
+        if (book.isPresent()) {
+            // Book exists, display it
+            model.addAttribute("book", book.get());
+            return "books/show";
+        } else {
+            // Book not found, display error page
+            return "redirect:/error";
+        }
     }
 
 
@@ -63,20 +70,31 @@ public class ThymeleafBookController {
     @GetMapping(path = "/books/{id}/update")
     public String getPageUpdateBook(Model model, @PathVariable long id) {
         Optional<Book> book = bookService.getBookById(id);
-        model.addAttribute("book", book.get());
-        return "books/update";
+
+        if (book.isPresent()) {
+            // Book exists, update it
+            model.addAttribute("book", book.get());
+            return "books/update";
+        } else {
+            // Book not found, display error page
+            return "redirect:/error";
+        }
     }
 
 
     // Delete Book
-    // Http Method is GET because less complexity with thymeleaf
+    // Http Method is GET because way less complex this way with thymeleaf
     @GetMapping(path = "/books/{id}/delete")
     public String deleteBook(Model model, @PathVariable long id) {
         Optional<Book> book = bookService.getBookById(id);
-        if (book.isPresent()){
+
+        if (book.isPresent()) {
+            // Book exists, delete it
             bookService.removeBookById(book.get().getId());
             return "redirect:/books";
+        } else {
+            // Book not found, display error page
+            return "redirect:/error";
         }
-        return "redirect:/error";
     }
 }
