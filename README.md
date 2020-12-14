@@ -50,7 +50,9 @@ or
 ```
 ### How to test the project:
 
-`./gradlew clean test`
+```
+./gradlew clean test
+```
 
 ### External contributions:
 * Architecture ideas from (also simply wanted to try building something like that, was a good opportunity) [myshop](https://github.com/ribeaud/blog-code-samples/tree/master/myshop)
