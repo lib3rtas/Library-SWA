@@ -2,22 +2,26 @@ package ch.fhnw.swa.library.book;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
 import lombok.AllArgsConstructor;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @AllArgsConstructor
-public class H2BookRepository implements IBookRepository{
+public class H2BookRepository implements IBookRepository {
     private final JdbcTemplate jdbcTemplate;
     private final IBookFactory bookFactory;
 
     @Override
     public int createBook(Book book) {
-        return 0;
+        jdbcTemplate.update(
+                "INSERT INTO books(id,title,author,description) VALUES (?,?,?,?);",
+                book.getId(),
+                book.getTitle(),
+                book.getAuthor(),
+                book.getDescription());
+        return 1;
     }
 
     @Override
