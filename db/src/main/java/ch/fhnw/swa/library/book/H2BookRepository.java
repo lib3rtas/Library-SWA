@@ -14,14 +14,15 @@ public class H2BookRepository implements IBookRepository {
     private final IBookFactory bookFactory;
 
     @Override
-    public int createBook(Book book) {
+    public boolean createBook(Book book) {
         jdbcTemplate.update(
                 "INSERT INTO books(id,title,author,description) VALUES (?,?,?,?);", // all ? are replaced, based on their position of parameter
                 book.getId(),
                 book.getTitle(),
                 book.getAuthor(),
-                book.getDescription());
-        return 1;
+                book.getDescription()
+        );
+        return true;
     }
 
     @Override
@@ -41,15 +42,15 @@ public class H2BookRepository implements IBookRepository {
     }
 
     @Override
-    public int removeBookById(long id) {
+    public boolean removeBookById(long id) {
         jdbcTemplate.execute(
                 "DELETE FROM books WHERE id = " + id + ";"
         );
-        return 1;
+        return true;
     }
 
     @Override
-    public int updateBook(Book book) {
+    public boolean updateBook(Book book) {
         jdbcTemplate.update(
                 "UPDATE books SET title = ?,author = ?,description = ? WHERE id = ?;", // all ? are replaced, based on their position of parameter
                 book.getTitle(),
@@ -57,7 +58,7 @@ public class H2BookRepository implements IBookRepository {
                 book.getDescription(),
                 book.getId()
         );
-        return 1;
+        return true;
     }
 
     private Book createBookFromResponse(ResultSet resultSet) throws SQLException {

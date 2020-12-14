@@ -14,9 +14,9 @@ class ListBookRepository implements IBookRepository {
     }
 
     @Override
-    public int createBook(Book book) {
+    public boolean createBook(Book book) {
         db.add(book);
-        return 1;
+        return true;
     }
 
     @Override
@@ -32,25 +32,25 @@ class ListBookRepository implements IBookRepository {
     }
 
     @Override
-    public int removeBookById(long id) {
+    public boolean removeBookById(long id) {
         Optional<Book> optionalBook = getBookById(id);
         if (optionalBook.isEmpty()) {
-            return 0;
+            return false;
         } else {
             db.remove(optionalBook.get());
-            return 1;
+            return true;
         }
     }
 
     @Override
-    public int updateBook(Book book) {
+    public boolean updateBook(Book book) {
         Optional<Book> optionalArtifact = getBookById(book.getId());
         if (optionalArtifact.isEmpty()) {
-            return 0;
+            return false;
         } else {
             int index = db.indexOf(optionalArtifact.get());
             db.set(index, book);
-            return 1;
+            return true;
         }
     }
 

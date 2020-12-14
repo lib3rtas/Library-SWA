@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IBookService {
-    int createBook(Book book);
+    boolean createBook(Book book);
 
     List<Book> getAllBooks();
 
     Optional<Book> getBookById(long id);
 
-    int removeBookById(long id);
+    boolean removeBookById(long id);
 
-    int updateBook(Book book);
+    boolean updateBook(Book book);
 }

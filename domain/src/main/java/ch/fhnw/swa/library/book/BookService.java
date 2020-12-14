@@ -10,7 +10,7 @@ class BookService implements IBookService {
     private final IBookRepository bookRepository;
 
     @Override
-    public int createBook(Book book) {
+    public boolean createBook(Book book) {
         return bookRepository.createBook(book);
     }
 
@@ -25,12 +25,12 @@ class BookService implements IBookService {
     }
 
     @Override
-    public int removeBookById(long id) {
+    public boolean removeBookById(long id) {
         return bookRepository.removeBookById(id);
     }
 
     @Override
-    public int updateBook(Book book) {
+    public boolean updateBook(Book book) {
         return bookRepository.updateBook(book);
     }
 }

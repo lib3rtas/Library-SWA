@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Book Server Page Controller implementation
+ * Book Server Page Controller Implementation
  */
 @Controller
 @AllArgsConstructor
@@ -49,8 +49,13 @@ public class ThymeleafBookController {
     // Create Book
     @PostMapping("/books/create")
     public String createBook(Book book) {
-        bookService.createBook(book);
-        return "redirect:/books";
+        if (bookService.createBook(book)) {
+            return "redirect:/books";
+        } else {
+            // Book could not be created, display error page
+            return "redirect:/error";
+        }
+
     }
 
     @GetMapping(path = "/books/create")
@@ -63,8 +68,12 @@ public class ThymeleafBookController {
     // Update Book
     @PostMapping("/books/update")
     public String updateBook(Book book) {
-        bookService.updateBook(book);
-        return "redirect:/books";
+        if (bookService.updateBook(book)) {
+            return "redirect:/books";
+        } else {
+            // Book could not be updated, display error page
+            return "redirect:/error";
+        }
     }
 
     @GetMapping(path = "/books/{id}/update")
