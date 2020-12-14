@@ -7,6 +7,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Sanity Check to see if service is loaded by context
+ */
 @SpringBootTest
 class LibraryApplicationTests {
 
