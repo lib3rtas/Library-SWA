@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 /**
  * Book Server Page Controller implementation
@@ -33,7 +32,7 @@ public class ThymeleafBookController {
 
     // Show specific Book
     @GetMapping(path = "/books/{id}")
-    public String getPageBookShow(Model model, @PathVariable UUID id) {
+    public String getPageBookShow(Model model, @PathVariable long id) {
         Optional<Book> book = bookService.getBookById(id);
         model.addAttribute("book", book.get());
         return "/books/show";
@@ -62,7 +61,7 @@ public class ThymeleafBookController {
     }
 
     @GetMapping(path = "/books/{id}/update")
-    public String getPageUpdateBook(Model model, @PathVariable UUID id) {
+    public String getPageUpdateBook(Model model, @PathVariable long id) {
         Optional<Book> book = bookService.getBookById(id);
         model.addAttribute("book", book.get());
         return "/books/update";
@@ -72,7 +71,7 @@ public class ThymeleafBookController {
     // Delete Book
     // Http Method is GET because less complexity with thymeleaf
     @GetMapping(path = "/books/{id}/delete")
-    public String deleteBook(Model model, @PathVariable UUID id) {
+    public String deleteBook(Model model, @PathVariable long id) {
         Optional<Book> book = bookService.getBookById(id);
         if (book.isPresent()){
             bookService.removeBookById(book.get().getId());
