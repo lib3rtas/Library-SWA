@@ -20,7 +20,7 @@ Matriculation Number: (17-550-708)
 - [X] Restart persistent data storage (H2 Database with File)
 
 #### Checklist
-- [ ] Description (POM file, index.html, Markdown file, Component/class diagram)
+- [X] Description (POM file, index.html, Markdown file, Component/class diagram)
 - [X] It works
 - [X] License
 - [X] View component exchangeable
@@ -28,11 +28,9 @@ Matriculation Number: (17-550-708)
 - [X] Minimum requirements
 - [X] Other (extensions)
 - [X] Commit log
-- [X] Tests (4 Integrationtests)
-- [ ] Comments, documentation
-- [ ] Good naming
-- [ ] Artistic value
-- [ ] Particular effort, technical challenge
+- [X] Tests (4 Integration Tests)
+- [X] Comments, documentation
+- [X] Naming checked
 
 
 ## Project delivery
