@@ -5,9 +5,11 @@ import java.util.*;
 class ListBookRepository implements IBookRepository {
 
     private final List<Book> db;
+    private final IBookFactory bookFactory;
 
-    public ListBookRepository(){
-        db = new ArrayList<>();
+    public ListBookRepository(IBookFactory bookFactory){
+        this.db = new ArrayList<>();
+        this.bookFactory = bookFactory;
         fillListWithExampleData();
     }
 
@@ -23,14 +25,14 @@ class ListBookRepository implements IBookRepository {
     }
 
     @Override
-    public Optional<Book> getBookById(UUID id) {
+    public Optional<Book> getBookById(long id) {
         return db.stream()
-                .filter(book -> book.getId().equals(id))
+                .filter(book -> book.getId() == (id))
                 .findAny();
     }
 
     @Override
-    public int removeBookById(UUID id) {
+    public int removeBookById(long id) {
         Optional<Book> optionalBook = getBookById(id);
         if (optionalBook.isEmpty()){
             return 0;
@@ -58,13 +60,13 @@ class ListBookRepository implements IBookRepository {
                 "ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " +
                 "voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non " +
                 "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Philosopher's Stone",  "J.K. Rowling",  sampleDescription));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Chamber of Secrets",   "J.K. Rowling",  sampleDescription));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Prisoner of Azkaban","J.K. Rowling", sampleDescription));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Goblet of Fire","J.K. Rowling",      sampleDescription));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Order of the Phoenix","J.K. Rowling", sampleDescription));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Half-Blood Prince","J.K. Rowling",   sampleDescription));
-        db.add(new Book(UUID.randomUUID(), "Harry Potter and the Deathly Hallows","J.K. Rowling",     sampleDescription));
+        Random rnd = new Random();
+        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Philosopher's Stone", "J.K. Rowling", sampleDescription));
+        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Chamber of Secrets", "J.K. Rowling",  sampleDescription));
+        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Prisoner of Azkaban", "J.K. Rowling", sampleDescription));
+        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Goblet of Fire", "J.K. Rowling",      sampleDescription));
+        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Order of the Phoenix", "J.K. Rowling",sampleDescription));
+        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Half-Blood Prince", "J.K. Rowling",   sampleDescription));
+        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Deathly Hallows", "J.K. Rowling",     sampleDescription));
     }
 }

@@ -8,7 +8,9 @@ import lombok.ToString;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.FieldDefaults;
 
-import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Random;
 
 // Can't just use @Value, because thymeleaf requires an non-immutable object
 @Getter
@@ -17,14 +19,16 @@ import java.util.UUID;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
+@Entity
 public class Book {
-    UUID    id;
+    @Id
+    Long id;
     String  title;
     String  author;
     String  description;
 
     // Cstor for thymeleaf
     public Book(){
-        this.id = UUID.randomUUID();
+        this.id = new Random().nextLong();
     }
 }

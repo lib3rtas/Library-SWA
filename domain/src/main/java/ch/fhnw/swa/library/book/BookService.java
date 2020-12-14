@@ -3,7 +3,6 @@ package ch.fhnw.swa.library.book;
 import lombok.AllArgsConstructor;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @AllArgsConstructor
 class BookService implements IBookService {
@@ -20,12 +19,12 @@ class BookService implements IBookService {
     }
 
     @Override
-    public Optional<Book> getBookById(UUID id) {
+    public Optional<Book> getBookById(long id) {
         return bookRepository.getBookById(id);
     }
 
     @Override
-    public int removeBookById(UUID id) {
+    public int removeBookById(long id) {
         return bookRepository.removeBookById(id);
     }
 
