@@ -39,7 +39,7 @@ Matriculation Number: (17-550-708)
 ## Project delivery
 (_to be filled by student_)???
 
-How to start the project:
+### How to start the project:
 
 ```
 ./gradlew bootRun
@@ -48,22 +48,24 @@ or
 
 ./gradlew clean build && ./gradlew bootRun
 ```
-How to test the project:
+### How to test the project:
 
 `./gradlew clean test`
 
-External contributions:
+### External contributions:
 * Architecture ideas from (also simply wanted to try building something like that, was a good opportunity) [myshop](https://github.com/ribeaud/blog-code-samples/tree/master/myshop)
 * How to best modularize spring projects [https://spring.io/guides/gs/multi-module/](https://spring.io/guides/gs/multi-module/)
 * Simple Java random string generation [https://stackoverflow.com/a/157202](https://stackoverflow.com/a/157202)
 * Not really an external contribution, but generally used the official documentations of Spring, H2, JUnit ...
 
-Other comments:
+### Other comments:
 
 I implemented the Integration Tests in a single module (app) and it got me thinking. How would one approach this best?
 I think Unit Test would definitely be best implemented in the regarding module. But where would be "the best" place for integration tests?
 
-I'm particular proud of:
+### I'm particular proud of:
+
+#### Data Repositories
 
 The data repository switching. Different data sources can be selected in *spring/../BookConfiguration.java*
 ```
@@ -95,6 +97,10 @@ and move the **@Primary** annotation in *spring/../BookConfiguration.java* from 
 	@Bean
 	DataSource h2InMemDataSource() {
 ```
+#### Also more surprised but also proud
+
+...how easy it is to have somewhat good looking html pages, by simply injecting the right css :D
+
 ## Project grading
 
 (_to be filled by lecturer_)
