@@ -59,6 +59,7 @@ or
 * How to best modularize spring projects [https://spring.io/guides/gs/multi-module/](https://spring.io/guides/gs/multi-module/)
 * Simple Java random string generation [https://stackoverflow.com/a/157202](https://stackoverflow.com/a/157202)
 * Not really an external contribution, but generally used the official documentations of Spring, H2, JUnit ...
+* For the graphics I used Gleek and Figma
 
 ### Other comments:
 
