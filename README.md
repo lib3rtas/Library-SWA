@@ -17,18 +17,18 @@ Matriculation Number: (17-550-708)
 
 #### Data persistency
 - [X] Simple In-Memory per java.util.List
-- [ ] Restart persistent data storage
+- [X] Restart persistent data storage (H2 Database with File)
 
 #### Checklist
 - [ ] Description (POM file, index.html, Markdown file, Component/class diagram)
 - [X] It works
-- [ ] License
+- [X] License
 - [X] View component exchangeable
 - [X] Repository component exchangeable
 - [X] Minimum requirements
 - [X] Other (extensions)
 - [X] Commit log
-- [ ] Tests (mind. 1 Integrationtest)
+- [X] Tests (4 Integrationtests)
 - [ ] Comments, documentation
 - [ ] Good naming
 - [ ] Artistic value
@@ -44,17 +44,47 @@ How to start the project:
 
 How to test the project:
 
-`insert command to test`
+`./gradlew clean test`
 
 External contributions:
 * Architecture idea [myshop](https://github.com/ribeaud/blog-code-samples/tree/master/myshop)
 * How to best modularize spring projects [https://spring.io/guides/gs/multi-module/](https://spring.io/guides/gs/multi-module/)
 * Simple Java random string generation [https://stackoverflow.com/a/157202](https://stackoverflow.com/a/157202)
+* Not really an external contribution, but generally used the official documentations of Spring, H2, JUnit ...
 
 Other comments:
 
 I'm particular proud of:
+The data repository switching. Different data sources can be selected in *spring/../BookConfiguration.java*
+```
+IBookService bookService(@Qualifier("h2") IBookRepository bookRepository)
+	
+or
 
+IBookService bookService(@Qualifier("list") IBookRepository bookRepository)
+```
+Theoretically it is also possible, to change the storage type of the H2 database from File to InMemory. Sadly Springs BeanFactory produces a really 
+unusual problem with this configuration and cannot call the schema.sql and data.sql successfully. Therefore it technically and 
+architecturally could work, but I couldn't find the issue and didn't want to waste more time on it.
+
+To change from H2 File to H2 InMemory simply replace the **spring.datasource.url** property with **jdbc:h2:mem:data** in *app/../resources/application.properties*
+```
+...
+spring.datasource.url=jdbc:h2:mem:data
+...
+```
+and move the **@Primary** annotation in *spring/../BookConfiguration.java* from **h2InFileDataSource** to **h2InMemDataSource**
+```
+---	@Primary
+	@Bean
+	DataSource h2InMemDataSource() {
+
+        ...
+
++++	@Primary
+	@Bean
+	DataSource h2InMemDataSource() {
+```
 ## Project grading
 
 (_to be filled by lecturer_)
