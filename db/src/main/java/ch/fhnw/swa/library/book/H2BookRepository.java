@@ -16,7 +16,7 @@ public class H2BookRepository implements IBookRepository {
     @Override
     public int createBook(Book book) {
         jdbcTemplate.update(
-                "INSERT INTO books(id,title,author,description) VALUES (?,?,?,?);",
+                "INSERT INTO books(id,title,author,description) VALUES (?,?,?,?);", // all ? are replaced, based on their position of parameter
                 book.getId(),
                 book.getTitle(),
                 book.getAuthor(),
@@ -51,7 +51,7 @@ public class H2BookRepository implements IBookRepository {
     @Override
     public int updateBook(Book book) {
         jdbcTemplate.update(
-                "UPDATE books SET title = ?,author = ?,description = ? WHERE id = ?;",
+                "UPDATE books SET title = ?,author = ?,description = ? WHERE id = ?;", // all ? are replaced, based on their position of parameter
                 book.getTitle(),
                 book.getAuthor(),
                 book.getDescription(),

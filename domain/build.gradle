@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.4.0'
-	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.4.0'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
 }
 
 group = 'ch.fhnw.swa.library'
@@ -9,32 +9,38 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '15'
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
+    // import spring starters
+    implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // use lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // test dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
 
+// make this spring module non-starting
 bootJar {
-	enabled = false
+    enabled = false
 }
 
 jar {
-	enabled = true
+    enabled = true
 }
 

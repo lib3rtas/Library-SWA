@@ -5,8 +5,12 @@ import java.util.Optional;
 
 public interface IBookService {
     int createBook(Book book);
+
     List<Book> getAllBooks();
+
     Optional<Book> getBookById(long id);
+
     int removeBookById(long id);
+
     int updateBook(Book book);
 }

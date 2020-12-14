@@ -40,21 +40,30 @@ Matriculation Number: (17-550-708)
 
 How to start the project:
 
-`./gradlew bootRun`
+```
+./gradlew bootRun
 
+or
+
+./gradlew clean build && ./gradlew bootRun
+```
 How to test the project:
 
 `./gradlew clean test`
 
 External contributions:
-* Architecture idea [myshop](https://github.com/ribeaud/blog-code-samples/tree/master/myshop)
+* Architecture ideas from (also simply wanted to try building something like that, was a good opportunity) [myshop](https://github.com/ribeaud/blog-code-samples/tree/master/myshop)
 * How to best modularize spring projects [https://spring.io/guides/gs/multi-module/](https://spring.io/guides/gs/multi-module/)
 * Simple Java random string generation [https://stackoverflow.com/a/157202](https://stackoverflow.com/a/157202)
 * Not really an external contribution, but generally used the official documentations of Spring, H2, JUnit ...
 
 Other comments:
 
+I implemented the Integration Tests in a single module (app) and it got me thinking. How would one approach this best?
+I think Unit Test would definitely be best implemented in the regarding module. But where would be "the best" place for integration tests?
+
 I'm particular proud of:
+
 The data repository switching. Different data sources can be selected in *spring/../BookConfiguration.java*
 ```
 IBookService bookService(@Qualifier("h2") IBookRepository bookRepository)

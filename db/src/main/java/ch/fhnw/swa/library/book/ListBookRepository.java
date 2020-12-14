@@ -7,7 +7,7 @@ class ListBookRepository implements IBookRepository {
     private final List<Book> db;
     private final IBookFactory bookFactory;
 
-    public ListBookRepository(IBookFactory bookFactory){
+    public ListBookRepository(IBookFactory bookFactory) {
         this.db = new ArrayList<>();
         this.bookFactory = bookFactory;
         fillListWithExampleData();
@@ -34,7 +34,7 @@ class ListBookRepository implements IBookRepository {
     @Override
     public int removeBookById(long id) {
         Optional<Book> optionalBook = getBookById(id);
-        if (optionalBook.isEmpty()){
+        if (optionalBook.isEmpty()) {
             return 0;
         } else {
             db.remove(optionalBook.get());
@@ -45,7 +45,7 @@ class ListBookRepository implements IBookRepository {
     @Override
     public int updateBook(Book book) {
         Optional<Book> optionalArtifact = getBookById(book.getId());
-        if (optionalArtifact.isEmpty()){
+        if (optionalArtifact.isEmpty()) {
             return 0;
         } else {
             int index = db.indexOf(optionalArtifact.get());
@@ -54,7 +54,8 @@ class ListBookRepository implements IBookRepository {
         }
     }
 
-    private void fillListWithExampleData(){
+    // simple filler method, mainly for manual testing
+    private void fillListWithExampleData() {
         String sampleDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor " +
                 "incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation " +
                 "ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in " +
@@ -62,11 +63,11 @@ class ListBookRepository implements IBookRepository {
                 "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
         Random rnd = new Random();
         db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Philosopher's Stone", "J.K. Rowling", sampleDescription));
-        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Chamber of Secrets", "J.K. Rowling",  sampleDescription));
+        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Chamber of Secrets", "J.K. Rowling", sampleDescription));
         db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Prisoner of Azkaban", "J.K. Rowling", sampleDescription));
-        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Goblet of Fire", "J.K. Rowling",      sampleDescription));
-        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Order of the Phoenix", "J.K. Rowling",sampleDescription));
-        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Half-Blood Prince", "J.K. Rowling",   sampleDescription));
-        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Deathly Hallows", "J.K. Rowling",     sampleDescription));
+        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Goblet of Fire", "J.K. Rowling", sampleDescription));
+        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Order of the Phoenix", "J.K. Rowling", sampleDescription));
+        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Half-Blood Prince", "J.K. Rowling", sampleDescription));
+        db.add(bookFactory.createSpecificBook(rnd.nextLong(), "Harry Potter and the Deathly Hallows", "J.K. Rowling", sampleDescription));
     }
 }

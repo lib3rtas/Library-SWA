@@ -1,7 +1,7 @@
 rootProject.name = 'library_swa'
 
-include 'app'
-include 'db'
-include 'domain'
-include 'spring'
-include 'web'
+include 'app'       // the spring startet app
+include 'db'        // database access layer
+include 'domain'    // domain classes (models, services, interfaces, ...)
+include 'spring'    // spring configuration classes
+include 'web'       // web controller

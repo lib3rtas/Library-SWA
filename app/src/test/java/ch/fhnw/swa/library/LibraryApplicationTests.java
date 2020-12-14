@@ -13,11 +13,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 class LibraryApplicationTests {
 
-	@Autowired
-	private ThymeleafBookController thymeleafBookController;
+    @Autowired
+    private ThymeleafBookController thymeleafBookController;
 
-	@Test
-	void contextLoads() throws Exception {
-		assertThat(thymeleafBookController).isNotNull();
-	}
+    @Test
+    void contextLoads() throws Exception {
+        assertThat(thymeleafBookController).isNotNull();
+    }
 }

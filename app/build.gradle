@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.4.0'
-	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.4.0'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
 }
 
 group = 'ch.fhnw.swa.library'
@@ -9,34 +9,38 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '15'
 
 configurations {
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    // import spring starters
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
-	implementation project(':web')
+    // import own modules
+    implementation project(':web')
 
-	runtimeOnly 'com.h2database:h2'
+    // start h2 at runtime
+    runtimeOnly 'com.h2database:h2'
 
-	compileOnly 'org.projectlombok:lombok'
-	annotationProcessor 'org.projectlombok:lombok'
+    // use lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-	testImplementation(project(":db"))
-	testImplementation(project(":domain"))
-	testImplementation(project(":web"))
-	testImplementation(project(":spring"))
+    // test dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation(project(":db"))
+    testImplementation(project(":domain"))
+    testImplementation(project(":web"))
+    testImplementation(project(":spring"))
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

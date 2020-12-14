@@ -11,13 +11,13 @@ public class BookFactory implements IBookFactory {
 
     // create specific book instance
     @Override
-    public Book createSpecificBook(long id, String title, String author, String description){
+    public Book createSpecificBook(long id, String title, String author, String description) {
         return new Book(id, title, author, description);
     }
 
     // create random book
     @Override
-    public Book createRandomBook(){
+    public Book createRandomBook() {
         return new Book(
                 new Random().nextLong(),
                 generateRandomString(10),
@@ -29,18 +29,18 @@ public class BookFactory implements IBookFactory {
 
     // create list of random books
     @Override
-    public List<Book> createListOfRandomBooks(int amount){
+    public List<Book> createListOfRandomBooks(int amount) {
         List<Book> books = new ArrayList<>();
-        for(int i = 0; i < amount; i++){
+        for (int i = 0; i < amount; i++) {
             books.add(createRandomBook());
         }
         return books;
     }
 
     // https://stackoverflow.com/a/157202
-    private static String generateRandomString(int length){
+    private static String generateRandomString(int length) {
         StringBuilder stringBuilder = new StringBuilder(length);
-        for(int c = 0; c < length; c++){
+        for (int c = 0; c < length; c++) {
             stringBuilder.append(random.nextInt(characters.length()));
         }
         return stringBuilder.toString();

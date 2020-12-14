@@ -23,12 +23,12 @@ import java.util.Random;
 public class Book {
     @Id
     Long id;
-    String  title;
-    String  author;
-    String  description;
+    String title;
+    String author;
+    String description;
 
     // Cstor for thymeleaf
-    public Book(){
+    public Book() {
         this.id = new Random().nextLong();
     }
 }
