@@ -62,6 +62,19 @@ or
 
 ### Other comments:
 
+#### Data Persistency
+
+Currently the application is configured to reapply the schema.sql and data.sql at every start.
+This can be disabled in the file *app/../resources/application.properties* by changing the value of the property
+```
+From:
+spring.datasource.initialization-mode=always
+
+To:
+spring.datasource.initialization-mode=never
+```
+#### Question about Integration Test in Spring
+
 I implemented the Integration Tests in a single module (app) and it got me thinking. How would one approach this best?
 I think Unit Test would definitely be best implemented in the regarding module. But where would be "the best" place for integration tests?
 
@@ -69,7 +82,7 @@ I think Unit Test would definitely be best implemented in the regarding module. 
 
 #### Data Repositories
 
-The data repository switching. Different data sources can be selected in *spring/../BookConfiguration.java*
+The data repository switching which took quite a while to implement. Different data sources can be selected in *spring/../BookConfiguration.java* with the Qualifier "list" or "h2"
 ```
 IBookService bookService(@Qualifier("h2") IBookRepository bookRepository)
 	
@@ -77,9 +90,8 @@ or
 
 IBookService bookService(@Qualifier("list") IBookRepository bookRepository)
 ```
-Theoretically it is also possible, to change the storage type of the H2 database from File to InMemory. Sadly Springs BeanFactory produces a really 
-unusual problem with this configuration and cannot call the schema.sql and data.sql successfully. Therefore it technically and 
-architecturally could work, but I couldn't find the issue and didn't want to waste more time on it.
+Theoretically it is also possible, to change the storage type of the H2 database from File to InMemory. Which makes the application noteably faster. Sadly Springs BeanFactory produces a really unusual problem with this configuration and cannot call the schema.sql and data.sql successfully. 
+Therefore it technically and architecturally could work, but I couldn't find the issue and didn't want to waste more time on it.
 
 To change from H2 File to H2 InMemory simply replace the **spring.datasource.url** property with **jdbc:h2:mem:data** in *app/../resources/application.properties*
 ```
