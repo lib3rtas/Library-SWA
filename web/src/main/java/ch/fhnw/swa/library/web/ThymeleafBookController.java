@@ -26,7 +26,7 @@ public class ThymeleafBookController {
     public String getPageBookList(Model model) {
         List<Book> books = bookService.getAllBooks();
         model.addAttribute("books", books);
-        return "/books/list";
+        return "books/list";
     }
 
 
@@ -35,7 +35,7 @@ public class ThymeleafBookController {
     public String getPageBookShow(Model model, @PathVariable long id) {
         Optional<Book> book = bookService.getBookById(id);
         model.addAttribute("book", book.get());
-        return "/books/show";
+        return "books/show";
     }
 
 
@@ -49,7 +49,7 @@ public class ThymeleafBookController {
     @GetMapping(path = "/books/create")
     public String getPageBookCreate(Model model) {
         model.addAttribute("book", new Book());
-        return "/books/create";
+        return "books/create";
     }
 
 
@@ -64,7 +64,7 @@ public class ThymeleafBookController {
     public String getPageUpdateBook(Model model, @PathVariable long id) {
         Optional<Book> book = bookService.getBookById(id);
         model.addAttribute("book", book.get());
-        return "/books/update";
+        return "books/update";
     }
 
 
