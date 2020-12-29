@@ -3,8 +3,8 @@ A modular spring library application for Software Architecture HS2020
 
 Matriculation Number: (17-550-708)
 
-![Class Overview Image](/images/class_overview.png)
-![Class Diagram Image](/images/gleek-class-diagram.svg)
+![Class Overview Image](images/class_overview.png)
+![Class Diagram Image](images/gleek-class-diagram.svg)
 
 #### Minimum requirements 
 
@@ -117,4 +117,9 @@ and move the **@Primary** annotation in *spring/../BookConfiguration.java* from 
 
 ## Project grading
 
-(_to be filled by lecturer_)
+You submitted a multi-modules project, based on a given template.
+Nice job!
+
+Kindly Refer to [GradedExercise.xlsx](GradedExercise.xlsx) for grading details.
+
+Grade: **5.5**
